@@ -862,15 +862,15 @@ const Div = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
-        transition: transform 0.2s ease;
+        // transition: transform 0.2s ease;
         // cursor: pointer;
         margin: 20px 25px;
         position: relative;
 
-        &:hover {
-            transform: scale(1.05);
-            transition: transform 0.2s ease;
-        }
+        // &:hover {
+        //     transform: scale(1.05);
+        //     transition: transform 0.2s ease;
+        // }
 
     }
 

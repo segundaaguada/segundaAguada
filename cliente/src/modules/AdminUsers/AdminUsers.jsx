@@ -2,16 +2,21 @@ import React, { useState, useEffect } from 'react'
 import AdminUserCard from '../../modules/AdminUserCard/AdminUserCard'
 import Span from '../../components/Span/Span'
 import Button from '../../components/Button/Button'
-import { FiTrash2 } from 'react-icons/fi'
+import DeleteConfirmation from '../../modules/DeleteConfirmation/DeleteConfirmation'
 import Section from '../../components/Section/Section'
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import { profilePictureColors } from '../../Share/utilities'
 import Div from '../../components/Div/Div'
 import axios from 'axios'
+import deleteUser from '../../services/deleteUser'
+import Modal from '../../modules/Modal/Modal'
+import { useNavigate } from 'react-router-dom'
 
 const AdminUsers = () => {
 
+    const [deleteModalState, setDeleteModalState] = useState(false)
+    const [contentChange, setContentChange] = useState({})
     const [usersCount, setUsersCount] = useState(0)
     const [usersList, setUsersList] = useState([])
     const [limit, setLimit] = useState(12)
@@ -21,6 +26,7 @@ const AdminUsers = () => {
     const [pictureColors, setPictureColors] = useState([])
     const [isCheckAll, setIsCheckAll] = useState(false)
     const [isChecked, setIsChecked] = useState([])
+    const navigate = useNavigate()
 
     const getUsersList = async () => {
         try {
@@ -59,18 +65,16 @@ const AdminUsers = () => {
 
     const handleClick = e => {
         const { id, checked } = e.target;
-        console.log(id, checked)
         setIsChecked([...isChecked, id]);
         if (!checked) {
             setIsChecked(isChecked.filter(item => item !== id));
         }
-        console.log('uh')
     }
     
 
     useEffect(() => {
         getUsersList();
-    }, [])
+    }, [contentChange])
 
     useEffect(() => {
         let colors = []
@@ -87,23 +91,36 @@ const AdminUsers = () => {
             <Div
                 style={{
                     display: 'flex',
-                    justifyContent: 'flex-end',
-                    alignItems: 'center'
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginTop: '2%'
                 }}
             >
-                {
-                    isChecked.length > 0 &&
-                    <Button delete>
-                        <FiTrash2 style={{fontSize: '24', marginRight: '5px'}} />
-                        {
-                            isChecked.length == 1 ? <Span>Eliminar {isChecked.length} usuario</Span>
-                            : <Span>Eliminar {isChecked.length} usuarios</Span>
-                        }
-                    </Button>
-                }
-                <Button onClick={handleSelectAll} style={{margin: '0 2%'}}>
-                    Seleccionar todos
+                <Button onClick={() => navigate('/admin/registro')} style={{margin: '0 2%'}}>
+                    Agregar usuario
                 </Button>
+                <Div
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        alignItems: 'center',
+                        width: '50%'
+                    }}
+                >
+                    {
+                        isChecked.length > 0 &&
+                        <Button delete onClick={()=> {console.log('asjhdv');setDeleteModalState(!deleteModalState)}}>
+                            {/* <FiTrash2 style={{fontSize: '24', marginRight: '5px'}} /> */}
+                            {
+                                isChecked.length == 1 ? <Span>Eliminar {isChecked.length} usuario</Span>
+                                : <Span>Eliminar {isChecked.length} usuarios</Span>
+                            }
+                        </Button>
+                    }
+                    <Button onClick={handleSelectAll} style={{margin: '0 2%'}}>
+                        Seleccionar todos
+                    </Button>
+                </Div>
             </Div>
             <Div className='div--admin-users'>
                 {
@@ -174,6 +191,26 @@ const AdminUsers = () => {
                 </Section>
                 : null
             }
+            <Modal
+                titulo = "Eliminar usuarios"
+                state = {deleteModalState}
+                changeState = {setDeleteModalState}
+                mostrarHeader = {true}
+                mostrarOverlay = {true}
+                posicionModal={'center'}
+            >
+                <DeleteConfirmation
+                    type='users'
+                    changeModalState={()=> setDeleteModalState(!deleteModalState)}
+                    contentId={isChecked}
+                    deleteContent={deleteUser}
+                    contentMessage={`${isChecked.length} usuario${isChecked.length > 1 ?'s' : ''}`}
+                    deleteList
+                    redirect={setContentChange}
+                    removeChecked={setIsChecked}
+                    removeCheckedAll={setIsCheckAll}
+                />
+            </Modal>
         </>
     )
 }

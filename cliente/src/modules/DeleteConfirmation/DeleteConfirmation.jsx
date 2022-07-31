@@ -4,13 +4,16 @@ import Div from '../../components/Div/Div'
 import P from '../../components/P/P'
 import Button from '../../components/Button/Button'
 
-const DeleteConfirmation = ({type, contentId, changeModalState, deleteContent, redirect}) => {
+const DeleteConfirmation = ({type, contentId, changeModalState, deleteContent, redirect, contentMessage, deleteList, removeChecked, removeCheckedAll}) => {
     
     const [content, setContent] = useState('')
     const [navigation, setNavigation] = useState('')
     const navigate = useNavigate()
 
     useEffect(() => {
+
+        if (contentMessage) setContent(contentMessage)
+
         switch (type) {
             case 'image':
                 setContent('esta imagen')
@@ -39,16 +42,31 @@ const DeleteConfirmation = ({type, contentId, changeModalState, deleteContent, r
                 <Button 
                     className='confirmation-button confirmation-button--delete'
                     onClick={async () => {
-                        const response = await deleteContent(contentId)
-                        if (response.status === 204) {
-                            if (redirect) {
-                                redirect(contentId)
-                                changeModalState(false)
+                        
+                        if (!deleteList) {
+                            const response = await deleteContent(contentId);
+                            if (response.status === 204) {
+                                if (redirect) {
+                                    redirect(contentId);
+                                    changeModalState(false);
+                                } else {
+                                    navigate(navigation);
+                                }
                             }
-                            else{
-                                navigate(navigation)
-                            }
+                        } else {
+
+                            await contentId.forEach(async (id) => {
+                                await deleteContent(id);
+                            })
+
+                            redirect(contentId);
+                            changeModalState(false);
+
+                            removeChecked([])
+                            removeCheckedAll(false)
+
                         }
+                        
                     }}
                 >
                     Eliminar
