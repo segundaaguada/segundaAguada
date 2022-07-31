@@ -196,6 +196,9 @@ associationsRouter.post("/" , upload.single('image'), async (request, response, 
         Object.keys(err.errors).forEach(key => {
             if (err.errors[key].properties.type === 'unique') {
                 switch (key) {
+                    case 'name':
+                        errors.push('Ya existe una entidad con ese nombre.')
+                        break
                     case 'email':
                         errors.push('Ya existe una entidad con esa dirección de correo.')
                         break

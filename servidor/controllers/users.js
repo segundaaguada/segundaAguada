@@ -26,17 +26,17 @@ usersRouter.get('/', async (request, response, next) => {
                         {
                             "$limit": limit ? limit : 9
                         }, 
-                        // {
-                        //     $lookup: {
-                        //         from: "associations",
-                        //         localField: "association",
-                        //         foreignField: "_id",
-                        //         as: "association"
-                        //     }
-                        // },
-                        // {
-                        //     $unwind: "$association"
-                        // },
+                        {
+                            $lookup: {
+                                from: "associations",
+                                localField: "association",
+                                foreignField: "_id",
+                                as: "association"
+                            }
+                        },
+                        {
+                            $unwind: "$association"
+                        },
                         {
                             $set: {id: "$_id"}
                         }

@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import AdminUserCard from '../../modules/AdminUserCard/AdminUserCard'
+import Span from '../../components/Span/Span'
+import Button from '../../components/Button/Button'
+import { FiTrash2 } from 'react-icons/fi'
 import Section from '../../components/Section/Section'
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
@@ -81,8 +84,27 @@ const AdminUsers = () => {
 
     return (
         <>
-        <button onClick={handleSelectAll}>Select all</button>
-        <div>{isChecked.length} seleccionados</div>
+            <Div
+                style={{
+                    display: 'flex',
+                    justifyContent: 'flex-end',
+                    alignItems: 'center'
+                }}
+            >
+                {
+                    isChecked.length > 0 &&
+                    <Button delete>
+                        <FiTrash2 style={{fontSize: '24', marginRight: '5px'}} />
+                        {
+                            isChecked.length == 1 ? <Span>Eliminar {isChecked.length} usuario</Span>
+                            : <Span>Eliminar {isChecked.length} usuarios</Span>
+                        }
+                    </Button>
+                }
+                <Button onClick={handleSelectAll} style={{margin: '0 2%'}}>
+                    Seleccionar todos
+                </Button>
+            </Div>
             <Div className='div--admin-users'>
                 {
                     usersList?.map((user, i) => {

@@ -21,11 +21,11 @@ const Nav = styled.nav `
         transition: transform 0.5s ease;
         position: absolute;
         width: 100%;
-        top: -40vh;
+        top: -45vh;
         z-index: 1000;
 
         &.abierto {
-            transform: translateY(59.9vh);
+            transform: translateY(64.9vh);
             transition: transform 0.5s ease;
         }
 
