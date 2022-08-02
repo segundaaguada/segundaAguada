@@ -4,7 +4,6 @@ import Span from '../../components/Span/Span'
 import P from '../../components/P/P'
 import Label from '../../components/Label/Label'
 import Input from '../../components/Input/Input'
-import Img from '../../components/Img/Img'
 
 const AdminCard = ({content, color, handleClick, isChecked, type}) => {
     return (
@@ -20,12 +19,12 @@ const AdminCard = ({content, color, handleClick, isChecked, type}) => {
                     className='admin-checkbox'
                 />
             </Label>
+            <Div className={`div--profile-picture usercard ${color}`}>
+                {content.name.substring(0, 1)}
+            </Div>
             {
                 type === 'users' ?
                 <>
-                    <Div className={`div--profile-picture usercard ${color}`}>
-                        {content.name.substring(0, 1)}
-                    </Div>
                     <P className='p--usercard-name'>
                         {content.name} {content.surname}
                     </P>
@@ -47,10 +46,6 @@ const AdminCard = ({content, color, handleClick, isChecked, type}) => {
                 </>
                 :
                 <>
-                    <Div 
-                        className={`div--profile-picture usercard`}
-                        profileImage={content.image}
-                    ></Div>
                     <P className='p--usercard-name'>
                         {content.name}
                     </P>

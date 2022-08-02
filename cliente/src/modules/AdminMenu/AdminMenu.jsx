@@ -91,7 +91,7 @@ const AdminMenu = ({user, setMenuOption}) => {
                             />
                             <Span>Comercios</Span>
                         </Li>
-                        <Li 
+                        {/* <Li 
                             className='admin-menu--li images'
                             onClick={() => {
                                 setMenuOption('images')}
@@ -132,7 +132,7 @@ const AdminMenu = ({user, setMenuOption}) => {
                             }}
                             />
                             <Span>Mensajes</Span>
-                        </Li>
+                        </Li> */}
                     </Fragment>
                     : null
                 }

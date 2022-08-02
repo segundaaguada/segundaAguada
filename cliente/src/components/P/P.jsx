@@ -148,10 +148,12 @@ const P = styled.p`
     &.p--usercard-name {
         font-weight: 600;
         margin: 13px 0 3px 0;
+        text-align: center;
     }
 
     &.p--usercard-entity {
         font-weight: 300;
+        text-align: center;
     }
 
 `

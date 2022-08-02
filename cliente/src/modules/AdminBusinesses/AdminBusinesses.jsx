@@ -11,6 +11,7 @@ import axios from 'axios'
 import deleteBusiness from '../../services/deleteBusiness'
 import Modal from '../../modules/Modal/Modal'
 import { useNavigate } from 'react-router-dom'
+import { profilePictureColors } from '../../Share/utilities'
 
 const AdminBusinesses = () => {
 
@@ -22,6 +23,7 @@ const AdminBusinesses = () => {
     const [page, setPage] = useState(1)
     const [pagesCount, setPagesCount] = useState(0)
     const [lastPageSize, setLastPageSize] = useState(0)
+    const [pictureColors, setPictureColors] = useState([])
     const [isCheckAll, setIsCheckAll] = useState(false)
     const [isChecked, setIsChecked] = useState([])
     const navigate = useNavigate()
@@ -33,8 +35,7 @@ const AdminBusinesses = () => {
                 return (
                     {
                         id: business.id,
-                        name: business.bussinessName,
-                        image: business.imageUrl,
+                        name: business.bussinessName
                     }
                 )
             })
@@ -70,6 +71,16 @@ const AdminBusinesses = () => {
     useEffect(() => {
         getBusinessesList();
     }, [contentChange])
+
+    useEffect(() => {
+        let colors = []
+
+        for (let i=0; i<businessesCount; i++) {
+            colors.push(profilePictureColors[Math.floor(Math.random()*profilePictureColors.length)])
+        }
+        
+        setPictureColors(colors)
+    }, [businessesCount])
 
 
     return (
@@ -107,12 +118,12 @@ const AdminBusinesses = () => {
             </Div>
             <Div className='div--admin-users'>
                 {
-                    businessesList?.map((business) => {
+                    businessesList?.map((business, i) => {
                         console.log(business)
                         return <AdminCard 
                                     key={business.id}
                                     content={business} 
-                                    // color={pictureColors[i + ((page-1) * limit)]}
+                                    color={pictureColors[i + ((page-1) * limit)]}
                                     handleClick={handleClick}
                                     isChecked={isChecked.includes(business.id)}
                                     type='businesses'
@@ -161,7 +172,6 @@ const AdminBusinesses = () => {
                                         {
                                             id: business.id,
                                             name: business.bussinessName,
-                                            image: business.imageUrl,
                                         }
                                     )
                                 })

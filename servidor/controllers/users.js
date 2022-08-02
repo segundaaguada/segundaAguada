@@ -75,7 +75,7 @@ usersRouter.get('/verify', async (request, response, next) => {
 usersRouter.get('/:id', async (request, response,next) => {
     try{
         const {id} = request.params
-        const user = await User.findById(id)
+        const user = await User.findById(id).populate("association")
         if(user) return response.json(user)
     }
     catch (err) {

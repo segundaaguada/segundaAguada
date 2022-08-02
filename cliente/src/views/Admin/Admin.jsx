@@ -65,18 +65,18 @@ const Admin = () => {
                 document.querySelector('.admin-active').classList.remove('admin-active')
                 document.querySelector('.businesses').classList.add('admin-active')
                 break
-            case 'images':
-                document.querySelector('.admin-active').classList.remove('admin-active')
-                document.querySelector('.images').classList.add('admin-active')
-                break
-            case 'news':
-                document.querySelector('.admin-active').classList.remove('admin-active')
-                document.querySelector('.news').classList.add('admin-active')
-                break
-            case 'messages':
-                document.querySelector('.admin-active').classList.remove('admin-active')
-                document.querySelector('.messages').classList.add('admin-active')
-                break
+            // case 'images':
+            //     document.querySelector('.admin-active').classList.remove('admin-active')
+            //     document.querySelector('.images').classList.add('admin-active')
+            //     break
+            // case 'news':
+            //     document.querySelector('.admin-active').classList.remove('admin-active')
+            //     document.querySelector('.news').classList.add('admin-active')
+            //     break
+            // case 'messages':
+            //     document.querySelector('.admin-active').classList.remove('admin-active')
+            //     document.querySelector('.messages').classList.add('admin-active')
+            //     break
         }
     }, [menuOption])
     

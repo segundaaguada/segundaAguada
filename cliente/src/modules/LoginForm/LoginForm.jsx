@@ -22,9 +22,9 @@ const LoginForm = () => {
         setPasswordVisible(!passwordVisible)
     }
 
-    // const navigateToHome = () => {
-    //     navigate("/")
-    // }
+    const navigateToHome = () => {
+        navigate("/")
+    }
 
     const navigateToAdmin = () => {
         navigate('/admin')
@@ -49,7 +49,7 @@ const LoginForm = () => {
 
                     loginResponse.then(response => {
                         if (typeof response === 'string') setError(response)
-                        else navigateToAdmin()
+                        else navigateToHome()
                     })
                   
                     // setTimeout(()=>{
