@@ -889,6 +889,12 @@ const Div = styled.div`
         justify-content: center;
     }
 
+    ${props => props.profileImage && (
+        `
+
+        `)
+    }
+
 `
 
 export default Div;

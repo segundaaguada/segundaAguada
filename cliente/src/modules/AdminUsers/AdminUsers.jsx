@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import AdminUserCard from '../../modules/AdminUserCard/AdminUserCard'
+import AdminCard from '../AdminCard/AdminCard'
 import Span from '../../components/Span/Span'
 import Button from '../../components/Button/Button'
 import DeleteConfirmation from '../../modules/DeleteConfirmation/DeleteConfirmation'
@@ -109,12 +109,9 @@ const AdminUsers = () => {
                 >
                     {
                         isChecked.length > 0 &&
-                        <Button delete onClick={()=> {console.log('asjhdv');setDeleteModalState(!deleteModalState)}}>
+                        <Button delete onClick={()=> {setDeleteModalState(!deleteModalState)}}>
                             {/* <FiTrash2 style={{fontSize: '24', marginRight: '5px'}} /> */}
-                            {
-                                isChecked.length == 1 ? <Span>Eliminar {isChecked.length} usuario</Span>
-                                : <Span>Eliminar {isChecked.length} usuarios</Span>
-                            }
+                            <Span>Eliminar {isChecked.length} usuario{isChecked.length > 1 ? 's' : ''}</Span>
                         </Button>
                     }
                     <Button onClick={handleSelectAll} style={{margin: '0 2%'}}>
@@ -125,12 +122,13 @@ const AdminUsers = () => {
             <Div className='div--admin-users'>
                 {
                     usersList?.map((user, i) => {
-                        return <AdminUserCard 
+                        return <AdminCard 
                                     key={user.id}
-                                    user={user} 
+                                    content={user} 
                                     color={pictureColors[i + ((page-1) * limit)]}
                                     handleClick={handleClick}
                                     isChecked={isChecked.includes(user.id)}
+                                    type='users'
                                 />
                     })
                 }
