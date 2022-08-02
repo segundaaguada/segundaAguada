@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import {COLORS} from '../../Share/Colors'
-//styled
+//styled d
 const Aside = styled.aside`
 
     border-right: 1px dashed rgba(145, 158, 171, 0.24);
