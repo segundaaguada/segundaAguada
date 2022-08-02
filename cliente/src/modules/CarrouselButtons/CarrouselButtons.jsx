@@ -14,7 +14,7 @@ const CarrouselButtons = ({newsCarrousel, slider}) => {
                         filter: 'drop-shadow(4px 4px 5px rgb(0 0 0 / 0.4))'
                     }}
                     onClick={() => {
-                        slider?.current?.slickPrev();
+                        () => slider?.current?.slickPrev();
                     }}
                 />
                 <IoIosArrowForward 
@@ -26,7 +26,7 @@ const CarrouselButtons = ({newsCarrousel, slider}) => {
                         filter: 'drop-shadow(4px 4px 5px rgb(0 0 0 / 0.4))'
                     }}
                     onClick={() => {
-                        slider?.current?.slickNext();
+                        () => slider?.current?.slickNext();
                     }}
                 />
             </Div>
