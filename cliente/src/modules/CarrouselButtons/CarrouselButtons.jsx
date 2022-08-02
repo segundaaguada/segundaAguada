@@ -25,7 +25,7 @@ const CarrouselButtons = ({newsCarrousel, slider}) => {
                         cursor: 'pointer',
                         filter: 'drop-shadow(4px 4px 5px rgb(0 0 0 / 0.4))'
                     }}
-                    onClick={() => {
+                    onClick={() => { 
                         slider?.current?.slickNext();
                     }}
                 />

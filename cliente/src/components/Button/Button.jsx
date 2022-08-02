@@ -264,6 +264,40 @@ const Button = styled.button`
         
     }
 
+    ${props => props.delete && 
+        `
+            margin: 0;
+            display: flex;
+            align-items: center;
+
+            background-color: ${COLORS.Red};
+            border: 2px solid ${COLORS.Red};
+
+            & span {
+                color: ${COLORS.White};
+            }
+
+            & svg {
+                stroke: ${COLORS.White};
+            }
+
+            &:hover {
+                background-color: ${COLORS.White};
+                border: 2px solid ${COLORS.Red};
+
+                & span {
+                    color: ${COLORS.Red};
+                }
+    
+                & svg {
+                    stroke: ${COLORS.Red};
+                }
+
+            }
+
+        `
+    }
+
 
 `
 

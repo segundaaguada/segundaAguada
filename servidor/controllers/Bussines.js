@@ -150,6 +150,9 @@ bussinesRouter.post('/', userExtractor, upload.single('image'),async (request, r
         Object.keys(err.errors).forEach(key => {
             if (err.errors[key].properties.type === 'unique') {
                 switch (key) {
+                    case 'bussinessName':
+                        errors.push('Ya existe un comercio con ese nombre.')
+                        break
                     case 'email':
                         errors.push('Ya existe un comercio con esa dirección de correo.')
                         break

@@ -52,12 +52,12 @@ const SearchBar = ({placeholder, type}) => {
 
     const getBusinessesList = async () => {
         try {
-            const response = await axios.get('api/bussines');
-            const businessesList = response.data.map( business => {
+            const {data} = await axios.get('api/bussines?search=true');
+            const businessesList = data.map( business => {
                 return (
                     {
                         value: business.id,
-                        label: business.bussinessName
+                        label: business.name
                     }
                 )
             })

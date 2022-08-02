@@ -9,8 +9,9 @@ import addEntity from '../../services/addEntity'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 import { useNavigate } from 'react-router-dom'
-import geocodeAddress from '../../Share/geocodeAddress'
 import { formatSocialMedia } from '../../Share/utilities'
+import Geocode from "react-geocode";
+import { googleMapKey } from "../../env/env";
 
 const BusinessForm = ({type}) => {
 
@@ -105,12 +106,11 @@ const BusinessForm = ({type}) => {
                         
                         if (values.twitter) values.twitter = formatSocialMedia(values.twitter)
                         if (values.instagram) values.instagram = formatSocialMedia(values.instagram)
-                        
+
                         serverResponse = addEntity(values)
                     }
 
                     serverResponse.then(res => {
-                        console.log('solo si no hya error')
                         if (res.status && res.status === 201) {
                             setError('')
                             navigateToList()
@@ -123,14 +123,14 @@ const BusinessForm = ({type}) => {
                     })
                 }
 
-                catch (error) {
-                    console.log(error)
+                catch (err) {
+                    console.log(err)
                 }
 
             }}
         >
             {
-                ({handleChange, handleSubmit, errors, touched, setFieldValue}) =>
+                ({handleChange, handleSubmit, errors, touched, setFieldValue, values}) =>
                 <Form 
                     onSubmit={handleSubmit}
                     className='auth-form'
@@ -210,6 +210,25 @@ const BusinessForm = ({type}) => {
                             placeholder='calle'
                             className='form-input'
                             onChange={handleChange}
+                            onBlur={event => {
+                                if (event.target.value && values.streetNumber) {
+
+                                    Geocode.setApiKey(googleMapKey);
+                                    Geocode.setLanguage("es");
+
+                                    Geocode.fromAddress(`${event.target.value}, ${values.streetNumber}, Cádiz`).then(
+                                        response => {
+                                            const { lat, lng } = response.results[0].geometry.location;
+                                        
+                                            setFieldValue('latitude', lat.toString())
+                                            setFieldValue('longitude', lng.toString())
+                                        },
+                                        err => {
+                                            console.log(err)
+                                        }
+                                    )
+                                }
+                            }}
                         />
                         <Span className='form-label'>Dirección (calle) <Abbr title="Campo requerido">*</Abbr></Span>
                     </Label>
@@ -229,6 +248,25 @@ const BusinessForm = ({type}) => {
                             placeholder='número'
                             className='form-input'
                             onChange={handleChange}
+                            onBlur={event => {
+                                if (event.target.value && values.streetAddress) {
+
+                                    Geocode.setApiKey(googleMapKey);
+                                    Geocode.setLanguage("es");
+
+                                    Geocode.fromAddress(`${values.streetAddress}, ${event.target.value}, Cádiz`).then(
+                                        response => {
+                                            const { lat, lng } = response.results[0].geometry.location;
+                                        
+                                            setFieldValue('latitude', lat.toString())
+                                            setFieldValue('longitude', lng.toString())
+                                        },
+                                        err => {
+                                            console.log(err)
+                                        }
+                                    )
+                                }
+                            }}
                         />
                         <Span className='form-label'>Dirección (número) <Abbr title="Campo requerido">*</Abbr></Span>
                     </Label>
@@ -365,6 +403,18 @@ const BusinessForm = ({type}) => {
                         />
                         <Span className='form-label'>Facebook</Span>
                     </Label>
+
+                    <Field
+                        type='hidden'
+                        name='latitude'
+                        id='latitude'
+                    />
+                    <Field
+                        type='hidden'
+                        name='longitude'
+                        id='longitude'
+                    />
+
                     {
                         error && <Span className='error'>{error}</Span>
                     }

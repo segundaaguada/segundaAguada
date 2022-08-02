@@ -1,3 +1,4 @@
+import React from 'react';
 import { FiSmartphone, FiPhone, FiClock, FiMail, FiTwitter, FiInstagram, FiFacebook } from 'react-icons/fi';
 
 export const months = {
