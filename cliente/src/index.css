@@ -192,6 +192,10 @@ body, html {
     transition: all 0.2s ease;
 }
 
+.footer-link.linkedin {
+    margin: 0;
+}
+
 .footer-link:hover {
     /* color: #FFFFFFB3; */
     background-color: #6c9ecc;

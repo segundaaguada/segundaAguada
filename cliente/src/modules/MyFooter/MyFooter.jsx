@@ -100,7 +100,7 @@ const MyFooter = ({contactFooter}) => {
         >
           Desarrollado con&nbsp;
           <FaHeart style={{ fill: COLORS.HeartRed }}/>
-          &nbsp;por Alberto Bulpe Martínez y Beatriz Conde Cerón
+          &nbsp;por&nbsp;<a href='https://www.linkedin.com/in/alberto-bulpe/' target='blank' className='footer-link linkedin'>Alberto Bulpe Martínez</a>&nbsp;y&nbsp;<a href='https://www.linkedin.com/in/beaconde/' target='blank' className='footer-link linkedin'>Beatriz Conde Cerón</a>
         </P>
         <P 
           white="true"
