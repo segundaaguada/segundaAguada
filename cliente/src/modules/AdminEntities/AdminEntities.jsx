@@ -95,6 +95,7 @@ const AdminEntities = () => {
                     alignItems: 'center',
                     marginTop: '2%'
                 }}
+                className='admin-button--div'
             >
                 <Button onClick={() => navigate('/admin/registro/entidad')} style={{margin: '0 2%'}}>
                     Agregar entidad

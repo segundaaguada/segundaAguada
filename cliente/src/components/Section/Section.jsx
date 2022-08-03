@@ -346,6 +346,12 @@ const Section = styled.section`
         width: 81.5%;
         margin-left: auto;
         min-height: 100vh;
+
+        @media (max-width: 1150px) {
+            width: 100%;
+            padding-left: 5%;
+        }
+
     }
 
 `

@@ -15,6 +15,10 @@ const Aside = styled.aside`
     justify-content: space-between;
     overflow: hidden;
 
+    @media (max-width: 1150px) {
+        transform: translateX(-100%);
+    }
+
 `
 
 export default Aside

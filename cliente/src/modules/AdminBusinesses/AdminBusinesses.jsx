@@ -95,6 +95,7 @@ const AdminBusinesses = () => {
                     alignItems: 'center',
                     marginTop: '2%'
                 }}
+                className='admin-button--div'
             >
                 <Button onClick={() => navigate('/admin/registro/comercio')} style={{margin: '0 2%'}}>
                     Agregar comercio

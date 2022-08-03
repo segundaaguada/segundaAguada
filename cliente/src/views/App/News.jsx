@@ -127,7 +127,7 @@ const News = () => {
                     className='news-detail--buttons'
                 >
                     {
-                        user?.role === 1 || news.association === user?.association ? 
+                        user && user?.role === 1 || news.association === user?.association ? 
                         <ModalButton
                             onclick={()=> setDeleteModalState(!deleteModalState)}
                             position='relative'

@@ -890,10 +890,12 @@ const Div = styled.div`
         justify-content: center;
     }
 
-    ${props => props.profileImage && (
-        `
+    &.admin-button--div {
 
-        `)
+        @media (max-width: 680px) {
+            margin: 30px 0!important;
+        }
+
     }
 
 `

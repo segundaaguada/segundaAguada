@@ -23,6 +23,7 @@ const AdminProfile = () => {
             alignItems: "center",
             marginTop: "2%",
           }}
+          className='admin-button--div'
         >
           <Button
             delete

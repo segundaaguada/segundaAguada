@@ -37,6 +37,7 @@ const AdminEntity = () => {
                     alignItems: 'center',
                     marginTop: '2%'
                 }}
+                className='admin-button--div'
             >
                 <Button delete onClick={()=> {setDeleteModalState(!deleteModalState)}}>
                     <Span>Eliminar entidad</Span>

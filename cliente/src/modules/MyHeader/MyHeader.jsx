@@ -141,6 +141,15 @@ const MyHeader = () =>{
                                         Contacto
                                     </NavLink>
                                 </Li>
+                                <Li>
+                                    <a 
+                                        href='https://drive.google.com/drive/folders/1g0uTcxQ1lH-6WQlA2jdPRh-vdh467hea?usp=sharing'
+                                        className='navlink dropdown'
+                                        target='blank' 
+                                    >
+                                        Boletines
+                                    </a>
+                                </Li>
                             </Ul>
                         </Li>
                         <Li className='nav-link'>
@@ -259,6 +268,16 @@ const MyHeader = () =>{
                                 >
                                     Contacto
                                 </Link>
+                            </Li>
+                            <Li className='responsive-nav--li-dropdown'>
+                                <a
+                                    href='https://drive.google.com/drive/folders/1g0uTcxQ1lH-6WQlA2jdPRh-vdh467hea?usp=sharing'
+                                    className='responsive-link'
+                                    onClick={() => closeMenu()}
+                                    target='blank'
+                                >
+                                    Boletines
+                                </a>
                             </Li>
                         </Ul>
                     </Li>

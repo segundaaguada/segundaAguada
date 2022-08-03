@@ -98,6 +98,7 @@ const AdminUsers = () => {
                     alignItems: 'center',
                     marginTop: '2%'
                 }}
+                className='admin-button--div'
             >
                 <Button onClick={() => navigate('/admin/registro')} style={{margin: '0 2%'}}>
                     Agregar usuario
