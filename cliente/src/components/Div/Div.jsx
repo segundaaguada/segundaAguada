@@ -898,6 +898,10 @@ const Div = styled.div`
 
     }
 
+    &.admin--responsive-info {
+        
+    }
+
 `
 
 export default Div;
