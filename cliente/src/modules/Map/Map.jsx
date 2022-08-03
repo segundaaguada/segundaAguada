@@ -5,6 +5,9 @@ import { googleMapKey } from '../../env/env'
 
 const Map = ({coords}) => {
 
+    const centerLat = (coords.length > 1 || coords.length === 0) ? 36.514210437505575 : +coords[0].lat;
+    const centerLng = (coords.length > 1 || coords.length === 0) ? -6.2763813733612315  : +coords[0].lng;
+    
     const filteredCoords = coords.filter(coord => {
         return coord.lat !== undefined || coord.lng !== undefined
     })
@@ -27,8 +30,8 @@ const Map = ({coords}) => {
         <GoogleMapReact
             bootstrapURLKeys={{key: googleMapKey}}
             defaultCenter={{
-                lat: 36.514210437505575,
-                lng: -6.2763813733612315
+                lat: centerLat,
+                lng: centerLng
             }}
             defaultZoom={15}
         >

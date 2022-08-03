@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import checkLoggedUser from '../../services/checkLoggedUser'
 import Main from '../../components/Main/Main'
 import Section from '../../components/Section/Section'
@@ -6,7 +6,6 @@ import H2 from '../../components/H2/H2'
 import Line from '../../components/Line/Line'
 import Div from '../../components/Div/Div'
 import P from '../../components/P/P'
-import Img from '../../components/Img/Img'
 import Ul from '../../components/Ul/Ul'
 import Ol from '../../components/Ol/Ol'
 import Li from '../../components/Li/Li'
@@ -71,12 +70,17 @@ const AboutUs = () => {
                 <P className='about-us--p'>Prácticamente todos vivíamos en nuestra avenida, por lo que decidimos denominarnos "A.VV. AVENIDA SEGUNDA AGUADA", y el día 7 de Septiembre de 2007 a las 20:00 horas dimos vida a nuestra entidad a través de una asamblea de vecinos de la que surgió nuestra Acta Fundacional. Luego, muchas horas de trabajo, para que la vida de la recién nacida asociación de vecinos se convirtiera en oficial. Labores de gestión, manifestaciones pública, reuniones con representantes del municipio, y nuestra participación en el Pleno del Ayuntamiento el 7 de Diciembre de 2007, para que todos los ciudadanos de Cádiz y nuestros políticos municipales conocieran sin lugar a dudas, que vivimos en una avenida de nuestra ciudad, y no en una "carretera industrial", que vivimos en un barrio con multitud de problemas urbanísticos y medioambientales y que lucharíamos por nuestros derechos como ciudadanos y vecinos de Cádiz, dando por finalizada la época pasada de resignación y conformismo.</P>
                 <Div
                     className='about-us--div'
+                    style={{width: 'fit-content'}}
                 >
-                    <Img 
+                    {/* <Img 
                         src='/images/estacion.jpg' 
                         alt='Estación de tres Segunda Aguada'
                         className='about-us--img'
-                    />
+                    /> */}
+                    <video controls className='about-us--img' style={{width: '100%'}}>
+                        <source src="/video/video-presentacion.mp4" type="video/mp4" style={{width: '100%;'}}/>
+                        Su navegador no soporta contenido multimedia.
+                    </video>
                 </Div>
             </Section>
             <Section className='about-us--section section-bottom'>

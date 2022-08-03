@@ -40,6 +40,7 @@ const EntitiesList = () => {
 
     const getEntitiesList = async () => {
         try {
+            document.querySelector('.bounce-loader').classList.add('active');
             const {data} = await axios.get(`api/associations?limit=${limit}&skip=0`);
             const entitiesList = data[0].data.map( entity => {
                 return (
@@ -71,9 +72,11 @@ const EntitiesList = () => {
                 )
             })
             setCoordsList(coordsList)
+            document.querySelector('.bounce-loader').classList.remove('active');
         }
 
         catch (err) {
+            document.querySelector('.bounce-loader').classList.remove('active');
             console.log(err);
         }
     }
@@ -158,6 +161,7 @@ const EntitiesList = () => {
                                 showLastButton 
                                 onChange={async (e, params) => {
 
+                                    document.querySelector('.bounce-loader').classList.add('active');
                                     let request = ''
 
                                     switch (e.target.dataset.testid) {
@@ -209,6 +213,7 @@ const EntitiesList = () => {
                                         )
                                     })
                                     setCoordsList(coordsList)
+                                    document.querySelector('.bounce-loader').classList.remove('active');
                                 }}
                             />
                         </Stack> 

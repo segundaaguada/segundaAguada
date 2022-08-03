@@ -30,6 +30,7 @@ const AdminUsers = () => {
 
     const getUsersList = async () => {
         try {
+            document.querySelector('.bounce-loader').classList.add('active');
             const {data} = await axios.get(`api/users?limit=${limit}&skip=0`);
             const userList = data[0].data.map( user => {
                 return (
@@ -48,9 +49,11 @@ const AdminUsers = () => {
             setPagesCount(Math.ceil(data[0].count / limit))
             setUsersCount(data[0].count)
             setLastPageSize(data[0].count % limit ? data[0].count % limit : limit)
+            document.querySelector('.bounce-loader').classList.remove('active');
         }
 
         catch (err) {
+            document.querySelector('.bounce-loader').classList.remove('active');
             console.log(err);
         }
     }
@@ -144,6 +147,7 @@ const AdminUsers = () => {
                             showLastButton 
                             onChange={async (e, params) => {
 
+                                document.querySelector('.bounce-loader').classList.add('active');
                                 let request = ''
 
                                 switch (e.target.dataset.testid) {
@@ -183,6 +187,7 @@ const AdminUsers = () => {
                                 })
 
                                 setUsersList(userList)
+                                document.querySelector('.bounce-loader').classList.remove('active');
                             }}
                         />
                     </Stack> 

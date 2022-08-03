@@ -37,6 +37,7 @@ const NewsList = () => {
     
     const getNewsList = async () => {
         try {
+            document.querySelector('.bounce-loader').classList.add('active');
             const {data} = await axios.get(`api/news?limit=${limit}&skip=0`);
             const newsList = data[0].data.map( news => {
                 return (
@@ -54,10 +55,12 @@ const NewsList = () => {
             setPagesCount(Math.ceil(data[0].count / limit))
             setNewsCount(data[0].count)
             setLastPageSize(data[0].count % limit ? data[0].count % limit : limit)
+            document.querySelector('.bounce-loader').classList.remove('active');
         }
 
         catch (err) {
             console.log(err);
+            document.querySelector('.bounce-loader').classList.remove('active');
         }
     }
 
@@ -118,6 +121,7 @@ const NewsList = () => {
                             showLastButton 
                             onChange={async (e, params) => {
 
+                                document.querySelector('.bounce-loader').classList.add('active');
                                 let request = ''
 
                                 switch (e.target.dataset.testid) {
@@ -155,6 +159,7 @@ const NewsList = () => {
                                     )
                                 })               
                                 setNewsList(newsList)
+                                document.querySelector('.bounce-loader').classList.remove('active');
                             }}
                         />
                     </Stack> 

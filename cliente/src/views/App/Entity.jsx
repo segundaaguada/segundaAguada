@@ -44,6 +44,7 @@ const Entity = () => {
 
     const getEntityDetail = async () => {
         try {
+            document.querySelector('.bounce-loader').classList.add('active');
             const {data} = await axios.get(`api/associations/${id}`);
 
             document.title = data.name + ' | AVV Segunda Aguada'
@@ -70,10 +71,11 @@ const Entity = () => {
             setNewsList(data.news)
             setImageList(data.image)
             setSocialMedia(socialMedia)
-
+            document.querySelector('.bounce-loader').classList.remove('active');
         } 
         
         catch (error) {
+            document.querySelector('.bounce-loader').classList.remove('active');
             console.log(error)
             navigate('/404')
         }

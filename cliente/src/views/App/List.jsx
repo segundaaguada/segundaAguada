@@ -29,6 +29,7 @@ const List = ({type}) => {
 
     const getEntitiesList = async () => {
         try {
+            document.querySelector('.bounce-loader').classList.add('active');
             const response = await axios.get('api/associations');
             const entitiesList = response.data.map( entity => {
                 return (
@@ -55,15 +56,18 @@ const List = ({type}) => {
                 )
             })
             setCoordsList(coordsList)
+            document.querySelector('.bounce-loader').classList.remove('active');
         }
 
         catch (err) {
             console.log(err);
+            document.querySelector('.bounce-loader').classList.remove('active');
         }
     }
 
     const getBusinessesList = async () => {
         try {
+            document.querySelector('.bounce-loader').classList.add('active');
             const response = await axios.get('api/bussines');
             const businessesList = response.data.map( business => {
                 return (
@@ -90,10 +94,12 @@ const List = ({type}) => {
                 )
             })
             setCoordsList(coordsList)
+            document.querySelector('.bounce-loader').classList.remove('active');
         }
 
         catch (err) {
             console.log(err);
+            document.querySelector('.bounce-loader').classList.remove('active');
         }
     }
 

@@ -26,6 +26,7 @@ const Home = () =>{
 
     const getNewsList = async () => {
         try {
+            document.querySelector('.bounce-loader').classList.add('active');
             const {data} = await axios.get('api/news?reverse=true');
             const newsList = data[0].data.map( news => {
                 return (
@@ -41,9 +42,11 @@ const Home = () =>{
                 )
             })
             setNewsList(newsList)
+            document.querySelector('.bounce-loader').classList.remove('active');
         }
 
         catch (err) {
+            document.querySelector('.bounce-loader').classList.remove('active');
             console.log(err);
         }
     }

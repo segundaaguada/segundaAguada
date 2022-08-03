@@ -2,6 +2,8 @@ import axios from 'axios'
 
 const deleteImage = async (id) => {
 
+    document.querySelector('.bounce-loader').classList.add('active');
+
     const user = JSON.parse(localStorage.getItem('loggedUser'))
 
     try {
@@ -11,11 +13,15 @@ const deleteImage = async (id) => {
                 Authorization: `Bearer ${user.token}`
             },
         })
+
+        document.querySelector('.bounce-loader').classList.remove('active');
         
         return response
     }
     catch (error) {
+        document.querySelector('.bounce-loader').classList.remove('active');
         console.log(error)
+        return error
     }
 }
 

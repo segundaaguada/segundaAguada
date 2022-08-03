@@ -37,6 +37,7 @@ const News = () => {
     
     const getNewsDetail = async () => {
         try {
+            document.querySelector('.bounce-loader').classList.add('active');
             const {data} = await axios.get(`api/news/${id}`);
 
             document.title = data.title + ' | AVV Segunda Aguada'
@@ -48,9 +49,11 @@ const News = () => {
 
             data.content = data.content.split('\n')
             setNews(data)
+            document.querySelector('.bounce-loader').classList.remove('active');
         } 
         
         catch (error) {
+            document.querySelector('.bounce-loader').classList.remove('active');
             console.log(error)
             navigate('/404')
         }

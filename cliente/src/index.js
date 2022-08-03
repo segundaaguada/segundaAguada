@@ -10,12 +10,16 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ScrollToTop from './Share/ScrollToTop'
 import { reducerGeneral } from './store/general/reducer'
+import { BounceLoader } from 'react-spinners'
 
 const store = createStore(reducerGeneral)
 
 
 ReactDOM.render(
   <BrowserRouter>
+    <div className='bounce-loader'>
+      <BounceLoader color='#2474bf' size='150' />
+    </div>
     <ScrollToTop/>
     <Provider store={store}>
       <App/>

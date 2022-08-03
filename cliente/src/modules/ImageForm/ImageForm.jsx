@@ -24,6 +24,7 @@ const ImagesForm = ({user, changeModalState, redirect}) => {
             validationSchema={validationSchema}
             onSubmit={ async (values)=> {
                 try {
+                    document.querySelector('.bounce-loader').classList.add('active');
                     const response = await axios.post("/api/images", values, 
                         {
                             headers: { 
@@ -39,12 +40,14 @@ const ImagesForm = ({user, changeModalState, redirect}) => {
                     if (response.status === 201) {
                         redirect(values)
                         changeModalState(false)
+                        document.querySelector('.bounce-loader').classList.remove('active');
                     }
 
                 }
                 catch (error) {
                     console.log(error)
                     setError('No se pudo agregar la imagen.')
+                    document.querySelector('.bounce-loader').classList.remove('active');
                 }
             }}
         >

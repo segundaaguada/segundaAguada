@@ -40,6 +40,7 @@ const Business = () => {
 
     const getBusinessDetail = async () => {
         try {
+            document.querySelector('.bounce-loader').classList.add('active');
             const {data} = await axios.get(`api/bussines/${id}`);
 
             document.title = data.bussinessName + ' | AVV Segunda Aguada'
@@ -63,10 +64,11 @@ const Business = () => {
                 'facebook': data.facebook
             }
             setSocialMedia(socialMedia)
-
+            document.querySelector('.bounce-loader').classList.remove('active');
         } 
         
         catch (error) {
+            document.querySelector('.bounce-loader').classList.remove('active');
             console.log(error)
             navigate('/404')
         }

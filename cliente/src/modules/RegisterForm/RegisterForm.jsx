@@ -37,7 +37,7 @@ const RegisterForm = () => {
 
     const getAssociationsData = async () => {
         try {
-            
+            document.querySelector('.bounce-loader').classList.add('active');
             const response =  await axios.get("/api/associations?search=true");
             let associationList = response.data.map(association =>{
                 return (
@@ -48,8 +48,10 @@ const RegisterForm = () => {
                 )
             })
           setAssociationOptions(associationList)
+          document.querySelector('.bounce-loader').classList.remove('active');
         }catch(e) {
             console.log(e)
+            document.querySelector('.bounce-loader').classList.remove('active');
         }
     }
 

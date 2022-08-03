@@ -43,6 +43,7 @@ const BusinessesList = () => {
 
     const getBusinessesList = async () => {
         try {
+            document.querySelector('.bounce-loader').classList.add('active');
             const {data} = await axios.get(`api/bussines?limit=${limit}&skip=0`);
             const businessesList = data[0].data.map( business => {
                 return (
@@ -74,10 +75,12 @@ const BusinessesList = () => {
                 )
             })
             setCoordsList(coordsList)
+            document.querySelector('.bounce-loader').classList.remove('active');
         }
 
         catch (err) {
             console.log(err);
+            document.querySelector('.bounce-loader').classList.remove('active');
         }
     }
 
@@ -161,6 +164,7 @@ const BusinessesList = () => {
                             showLastButton 
                             onChange={async (e, params) => {
 
+                                document.querySelector('.bounce-loader').classList.add('active');
                                 let request = ''
 
                                 switch (e.target.dataset.testid) {
@@ -212,6 +216,7 @@ const BusinessesList = () => {
                                     )
                                 })
                                 setCoordsList(coordsList)
+                                document.querySelector('.bounce-loader').classList.remove('active');
                             }}
                         />
                     </Stack> 

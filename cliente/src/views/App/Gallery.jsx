@@ -51,6 +51,7 @@ const Gallery = () => {
 
     const getImageList = async () => {
         try {
+            document.querySelector('.bounce-loader').classList.add('active');
             const {data} = await axios.get(`api/images?limit=${limit}&skip=0`);
             if (data.length > 0) {
                 const imageList = data[0].data.map( image => {
@@ -74,11 +75,13 @@ const Gallery = () => {
                 setImagesCount(0)
                 setLastPageSize(0)
             }
-            
+
+            document.querySelector('.bounce-loader').classList.remove('active');
         }
 
         catch (err) {
             console.log(err);
+            document.querySelector('.bounce-loader').classList.remove('active');
         }
     }
 
@@ -135,6 +138,7 @@ const Gallery = () => {
                             showLastButton 
                             onChange={async (e, params) => {
 
+                                document.querySelector('.bounce-loader').classList.add('active');
                                 let request = ''
 
                                 switch (e.target.dataset.testid) {
@@ -170,6 +174,7 @@ const Gallery = () => {
                                     )
                                 })               
                                 setImageList(imagesList)
+                                document.querySelector('.bounce-loader').classList.remove('active');
                             }}
                         />
                     </Stack> 

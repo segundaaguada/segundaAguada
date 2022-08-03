@@ -13,6 +13,7 @@ const SearchBar = ({placeholder, type}) => {
 
     const getNewsList = async () => {
         try {
+            document.querySelector('.bounce-loader').classList.add('active');
             const {data} = await axios.get('api/news?search=true');
             const newsList = data.map( news => {
                 return (
@@ -24,15 +25,18 @@ const SearchBar = ({placeholder, type}) => {
             })
             
             setOptions(newsList)
+            document.querySelector('.bounce-loader').classList.remove('active');
         }
 
         catch (err) {
             console.log(err);
+            document.querySelector('.bounce-loader').classList.remove('active');
         }
     }
 
     const getEntitiesList = async () => {
         try {
+            document.querySelector('.bounce-loader').classList.add('active');
             const {data} = await axios.get('api/associations?search=true');
             const entitiesList = data.map( entity => {
                 return (
@@ -43,15 +47,18 @@ const SearchBar = ({placeholder, type}) => {
                 )
             })
             setOptions(entitiesList)
+            document.querySelector('.bounce-loader').classList.remove('active');
         }
 
         catch (err) {
             console.log(err);
+            document.querySelector('.bounce-loader').classList.remove('active');
         }
     }
 
     const getBusinessesList = async () => {
         try {
+            document.querySelector('.bounce-loader').classList.add('active');
             const {data} = await axios.get('api/bussines?search=true');
             const businessesList = data.map( business => {
                 return (
@@ -62,10 +69,12 @@ const SearchBar = ({placeholder, type}) => {
                 )
             })
             setOptions(businessesList)
+            document.querySelector('.bounce-loader').classList.remove('active');
         }
 
         catch (err) {
             console.log(err);
+            document.querySelector('.bounce-loader').classList.remove('active');
         }
     }
 
