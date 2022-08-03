@@ -124,7 +124,7 @@ const BusinessesList = () => {
                             margin='10px 0 15px 0'
                         />
                     </Div>
-                    <P>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam assumenda, eligendi, nam ea iste, doloribus expedita totam error officiis accusantium nemo alias ex odit autem. Nobis similique autem laboriosam eos.</P>
+                    {/* <P>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam assumenda, eligendi, nam ea iste, doloribus expedita totam error officiis accusantium nemo alias ex odit autem. Nobis similique autem laboriosam eos.</P> */}
                 
                     <Div className="list-right--responsive">
                         <Div className='list-map--container'>
