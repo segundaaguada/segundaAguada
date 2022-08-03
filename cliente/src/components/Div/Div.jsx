@@ -856,7 +856,8 @@ const Div = styled.div`
 
     &.div--usercard {
         width: 20%;
-        padding: 2% 2% 1.2% 2%;
+        min-width: 12em;
+        padding: 2% 2% 20px 2%;
         border-radius: 1em;
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
         display: flex;
