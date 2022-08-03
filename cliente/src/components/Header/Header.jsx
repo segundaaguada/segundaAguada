@@ -12,7 +12,11 @@ const Header = styled.header`
             height: 13vh;
             justify-content: flex-end;
             // background-color:pink;
-            padding: 0 3em;
+            padding-right: 3em;
+            display: flex;
+            flex-direction: space-between;
+            flex-wrap: wrap;
+            width: 100%;
         `
         :
         `

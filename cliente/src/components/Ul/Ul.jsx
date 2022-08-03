@@ -6,7 +6,7 @@ const Ul = styled.ul`
         `
             list-style : none;
             display: flex;
-            width: 100%;
+            width: fit-content;
             justify-content: flex-end;
 
             & > li {

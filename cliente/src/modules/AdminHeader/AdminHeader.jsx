@@ -6,6 +6,7 @@ import Ul from '../../components/Ul/Ul'
 import Li from '../../components/Li/Li'
 import countapi from 'countapi-js'
 import { FiArrowRight } from 'react-icons/fi'
+import Div from '../../components/Div/Div'
 
 const AdminHeader = ({user}) => {
 
@@ -22,7 +23,15 @@ const AdminHeader = ({user}) => {
         <Header
             admin={true}
         >
-            {/* TODO searchbar */}
+            <Div 
+                className='header-responsive--boton'
+                style={{alignSelf: 'center', margin: '0 20px', marginRight: 'auto'}}
+                // onClick={() => toggleMenu()}
+            >
+               <Div className='responsive-div responsive-div--uno' style={{backgroundColor: '#222'}} />
+                <Div className='responsive-div responsive-div--dos' style={{backgroundColor: '#222'}} />
+                <Div className='responsive-div responsive-div--tres' style={{backgroundColor: '#222'}} />
+            </Div>
             <Ul
                 admin={true}
             >
