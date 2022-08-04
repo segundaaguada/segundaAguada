@@ -108,7 +108,8 @@ const AdminUsers = () => {
                         display: 'flex',
                         justifyContent: 'flex-end',
                         alignItems: 'center',
-                        width: '50%'
+                        width: '50%',
+                        flexWrap: 'wrap'
                     }}
                 >
                     {

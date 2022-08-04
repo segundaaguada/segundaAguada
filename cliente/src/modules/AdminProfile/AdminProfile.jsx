@@ -36,12 +36,7 @@ const AdminProfile = () => {
         </Div>
         <Div>
             <Div
-                className="logo-container"
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                }}
+                className="logo-container admin-profile"
             >
                 <Div 
                     className={`div--profile-picture usercard blue`}
@@ -50,12 +45,7 @@ const AdminProfile = () => {
                     {user.name.substring(0, 1)}
                 </Div>
                 <Div
-                    style={{
-                        width: "95%",
-                        margin: "5% 0 0 0",
-                        display: "flex",
-                        justifyContent: "space-between",
-                    }}
+                    className='admin-profile--name'
                 >
                     <P style={{ fontWeight: "600", margin: '0 0 3% 1.5%' }}>
                         {user.name} {user.surname}
@@ -63,12 +53,10 @@ const AdminProfile = () => {
                 </Div>
                 <P style={{ margin: '0 0 0 1.5%'}}>{user.email}</P>
                 <Div
-                    className="div--usercard-role"
+                    className="div--usercard-role admin-profile--role"
                     style={{
                         backgroundColor: user.role === 1 ? "#FFDDDF" : "#E8EEF7",
-                        color: user.role === 1 ? "#DE0051" : "#003C54",
-                        margin: '3% 0 0 0.5%',
-                        alignSelf: 'flex-start'
+                        color: user.role === 1 ? "#DE0051" : "#003C54"
                     }}
                 >
                     <Span>{user.role === 1 ? "Admin" : "Usuario"}</Span>

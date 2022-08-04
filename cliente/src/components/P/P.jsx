@@ -156,6 +156,16 @@ const P = styled.p`
         text-align: center;
     }
 
+    &.admin-entity--name {
+
+        font-weight: 600;
+
+        @media (max-width: 480px) {
+            margin-bottom: 10px;
+        }
+
+    }
+
 `
 
 export default P;

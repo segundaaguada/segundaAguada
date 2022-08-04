@@ -17,6 +17,11 @@ const Header = styled.header`
             flex-direction: space-between;
             flex-wrap: wrap;
             width: 100%;
+
+            @media (max-width: 480px) {
+                padding-right: 1.5em;
+            }
+
         `
         :
         `

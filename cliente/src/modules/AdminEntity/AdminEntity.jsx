@@ -45,16 +45,11 @@ const AdminEntity = () => {
             </Div>
             <Div>
                 <Div 
-                    className='logo-container'
-                    style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'flex-start',
-                    }}
+                    className='logo-container admin-entity--container'
                 >
                     <Img src={entity.imageUrl} alt={entity.name} className='index-logo entity-img' style={{maxHeight: '35vh'}} />
-                    <Div style={{width: '95%', margin: '5% 0 0 5%', display: 'flex', justifyContent: 'space-between'}}>
-                        <P style={{fontWeight: '600'}}>{entity.name}</P>
+                    <Div className='admin-entity--heading'>
+                        <P className='admin-entity--name'>{entity.name}</P>
                         <P>{entity.streetAddress}, {entity.streetNumber}</P>
                     </Div>
                     <P style={{margin: '5% 0 0 2.5%'}}>{entity.description}</P>

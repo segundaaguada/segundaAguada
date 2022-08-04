@@ -263,6 +263,18 @@ const Div = styled.div`
 
         }
 
+        &.admin {
+            z-index: 500000;
+            width: 35px;
+            min-width: 15px;
+            display: none;
+
+            @media (max-width: 1150px) {
+                display: flex;
+            }
+
+        }
+
     }
 
     &.responsive-div {
@@ -555,6 +567,14 @@ const Div = styled.div`
         @media (max-width: 780px) {
             width: 100%;
             justify-content: center;
+        }
+
+        &.admin-profile {
+
+            @media (max-width: 480px) {
+                align-items: center;
+            }
+
         }
 
     }
@@ -856,7 +876,7 @@ const Div = styled.div`
 
     &.div--usercard {
         width: 20%;
-        min-width: 12em;
+        min-width: 14.5em;
         padding: 2% 2% 20px 2%;
         border-radius: 1em;
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
@@ -898,8 +918,65 @@ const Div = styled.div`
 
     }
 
-    &.admin--responsive-info {
-        
+    &.admin-profile {
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+    }
+
+    &.admin-profile--name {
+
+        width: 95%;
+        margin: 5% 0 0 0;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        @media (max-width: 480px) {
+            justify-content: center;
+        }
+
+    }
+
+    &.admin-profile--role {
+
+        margin: 3% 0 0 0.5%;
+        align-self: flex-start;
+
+        @media (max-width: 480px) {
+            align-self: center;
+        }
+
+    }
+
+    &.admin-entity--heading {
+
+        width: 95%;
+        margin: 5% 0 0 5%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        @media (max-width: 480px) {
+            margin-left: 0;
+            justify-content: center;
+        }
+
+    }
+
+    &.admin-entity--container {
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        @media (max-width: 480px) {
+            margin-left: 0;
+            align-items: center;
+        }
+
     }
 
 `

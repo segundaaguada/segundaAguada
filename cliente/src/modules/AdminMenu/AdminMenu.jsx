@@ -15,6 +15,14 @@ import { BiNews } from 'react-icons/bi'
 
 const AdminMenu = ({user, setMenuOption}) => {
 
+    const closeMenu = () => {
+        document.querySelector('.aside').classList.remove('open');
+        document.querySelector('body').classList.remove('scroll-desactivado')
+        document.querySelector('.overlay').style.display = 'none'
+        document.querySelector('.header-responsive--boton').classList.remove('abierto')
+    }
+
+
     return (
         <Nav className='admin-menu--nav'>
             <Ul className='admin-menu--ul'>
@@ -22,6 +30,7 @@ const AdminMenu = ({user, setMenuOption}) => {
                     className='admin-menu--li profile admin-active'
                     onClick={() => {
                         setMenuOption('profile')
+                        closeMenu()
                     }}
                 >
                     <FiUser 
@@ -36,6 +45,7 @@ const AdminMenu = ({user, setMenuOption}) => {
                     className='admin-menu--li entity'
                     onClick={() => {
                         setMenuOption('entity')
+                        closeMenu()
                     }}
                 >
                     <FiHome
@@ -53,6 +63,7 @@ const AdminMenu = ({user, setMenuOption}) => {
                             className='admin-menu--li users'
                             onClick={() => {
                                 setMenuOption('users')
+                                closeMenu()
                             }}
                         >
                             <FiUsers
@@ -67,6 +78,7 @@ const AdminMenu = ({user, setMenuOption}) => {
                             className='admin-menu--li entities'
                             onClick={() => {
                                 setMenuOption('entities')
+                                closeMenu()
                             }}
                         >
                             <BiBuildingHouse
@@ -80,8 +92,9 @@ const AdminMenu = ({user, setMenuOption}) => {
                         <Li 
                             className='admin-menu--li businesses'
                             onClick={() => {
-                                setMenuOption('businesses')}
-                            }
+                                setMenuOption('businesses')
+                                closeMenu()
+                            }}
                         >
                             <BiBriefcase
                                 style={{

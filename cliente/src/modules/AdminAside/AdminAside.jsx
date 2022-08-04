@@ -4,10 +4,10 @@ import AdminUser from '../AdminUser/AdminUser'
 import AdminMenu from '../AdminMenu/AdminMenu'
 import AdminLogout from '../AdminLogout/AdminLogout'
 
-export const AdminAside = ({user, logout, setMenuOption}) => {
-    
+export const AdminAside = ({ user, logout, setMenuOption }) => {
+
     return (
-        <Aside>
+        <Aside className='aside'>
             <AdminUser
                 name={user.name}
             />

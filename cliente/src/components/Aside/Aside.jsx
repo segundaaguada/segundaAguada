@@ -14,6 +14,20 @@ const Aside = styled.aside`
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
+    background-color: #fff;
+    z-index: 100000;
+    overflow-y: scroll;
+    transition: transform 0.4s ease;
+    min-width: fit-content;
+
+    &.open {
+        transform: translateX(0);
+        transition: transform 0.4s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+    }
 
     @media (max-width: 1150px) {
         transform: translateX(-100%);
