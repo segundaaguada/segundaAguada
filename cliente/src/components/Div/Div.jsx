@@ -975,6 +975,7 @@ const Div = styled.div`
         @media (max-width: 480px) {
             margin-left: 0;
             align-items: center;
+            flex-direction: column;
         }
 
     }
