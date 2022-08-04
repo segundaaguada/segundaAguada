@@ -106,7 +106,7 @@ const MyFooter = ({contactFooter}) => {
           white="true"
           className='footer-names--responsive'
         >
-          Desarrollado por Alberto Bulpe Martínez y Beatriz Conde Cerón
+          Desarrollado por&nbsp;<a href='https://www.linkedin.com/in/alberto-bulpe/' target='blank' className='footer-link linkedin'>Alberto Bulpe Martínez</a>&nbsp;y&nbsp;<a href='https://www.linkedin.com/in/beaconde/' target='blank' className='footer-link linkedin'>Beatriz Conde Cerón</a>
         </P>
         <Nav className='footer-nav'>
           <Ul 
