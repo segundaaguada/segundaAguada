@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const ContenedorModal = styled.div`
 
     // margin: 5vh 0;
-    margin-top: 10vh;
+    margin-top: 25vh;
     width: 30%;
     min-height: 100px;
     background-color: #fff;
