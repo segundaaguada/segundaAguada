@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import {COLORS} from '../../Share/Colors'
-//styled d
+
 const Aside = styled.aside`
 
     border-right: 1px dashed rgba(145, 158, 171, 0.24);
@@ -16,9 +16,9 @@ const Aside = styled.aside`
     overflow: hidden;
     background-color: #fff;
     z-index: 100000;
-    overflow-y: scroll;
+    // overflow-y: scroll;
     transition: transform 0.4s ease;
-    min-width: fit-content;
+    // min-width: fit-content;
 
     &.open {
         transform: translateX(0);
