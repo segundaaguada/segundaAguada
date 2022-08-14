@@ -27,6 +27,12 @@ const Main = styled.main`
         justify-content: flex-start;
         margin-top: 7%;
 
+        &.maintenance {
+            height: 100vh;
+            margin-top: 0;
+            // justify-content: center;
+        }
+
         @media (max-width: 780px) {
             margin-top: 15%;
         }

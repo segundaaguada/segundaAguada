@@ -202,6 +202,15 @@ body, html {
     transition: all 0.2s ease;
 }
 
+.footer-link.maintenance {
+    color: #222222;
+}
+
+.footer-link.maintenance:hover {
+    background-color: #F3F5F6;
+    transition: all 0.2s ease;
+}
+
 .admin-link {
     display: flex;
     align-items: center;

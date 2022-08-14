@@ -70,6 +70,21 @@ const Img = styled.img`
         object-fit: contain;
     }
 
+
+    ${props => props.maintenance && 
+        `
+            height: 85vh;
+            margin-bottom: -15vh;
+            filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.25));
+
+            @media (max-width: 768px) {
+                height: 50vh;
+                margin-bottom: -10vh;
+            }
+
+        `
+    }
+
 `
 
 export default Img;

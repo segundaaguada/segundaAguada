@@ -89,6 +89,8 @@ export const extraRoutes = [
     '/admin/registro/entidad/',
     '/admin',
     '/admin/',
+    '/mantenimiento',
+    '/mantenimiento/',
 ]
 
 export const carrouselImages = [

@@ -58,6 +58,27 @@ const P = styled.p`
         margin-bottom: 1%;
     }
 
+    &.not-found--text {
+        text-align: center;
+        max-width: 70%;
+    }
+
+    ${
+        props => props.maintenanceFooter &&
+        `
+            position: absolute;
+            bottom: 7px;
+            left: 10px;
+            font-size: 12px;
+
+            @media (max-width: 480px) {
+                font-size: 10px;
+                bottom: 5px;
+            }
+
+        `
+    }
+
     &.news-detail--content {
         text-indent: 25px;
         margin-bottom: 25px;
