@@ -12,7 +12,7 @@ const Modal = ({children, state, changeState, titulo , mostrarHeader, mostrarOve
                 <ModalOverlay 
                     mostrarOverlay={mostrarOverlay} 
                     posicionModal ={posicionModal} 
-                    // onClick={()=> changeState(false)}
+                    onClick={()=> changeState(false)}
                 >
                     <ConetenedorModal>
                         {
