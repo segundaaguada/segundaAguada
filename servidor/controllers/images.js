@@ -14,8 +14,12 @@ imagesRouter.get("/", async (request, response, next) =>
         // const images = await Image.find({})
         const limit = Number(request.query.limit)
         const skip = Number(request.query.skip)
+        const {reverse} = request.query
 
         const images = await Image.aggregate([
+            {
+                $sort: {created_at: reverse ? -1 : 1}
+            },
             {
                 $facet: {
                     'stage1': [{'$group': {_id: null, count: {$sum:1}}}],

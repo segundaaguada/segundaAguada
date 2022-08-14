@@ -55,6 +55,7 @@ associationsRouter.get("/", async (request,response, next)=>{
                                     from: "news",
                                     localField: "news",
                                     foreignField: "_id",
+                                    // pipeline: [{$sort: {created_at: -1}}],
                                     as: "news"
                                 }
                             },
@@ -88,8 +89,8 @@ associationsRouter.get("/:id", async (request,response, next)=>{
     try{
         const {id} = request.params
         const association = await Association.findById(id)
-            .populate("news")
-            .populate("image")
+            .populate({path: "news", options: { sort: {'created_at': -1} }})
+            .populate({path: "image", options: { sort: {'created_at': -1} }})
         if(association) return response.json(association)
         
 

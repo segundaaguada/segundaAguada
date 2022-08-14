@@ -52,7 +52,7 @@ const Gallery = () => {
     const getImageList = async () => {
         try {
             document.querySelector('.bounce-loader').classList.add('active');
-            const {data} = await axios.get(`api/images?limit=${limit}&skip=0`);
+            const {data} = await axios.get(`api/images?reverse=true&limit=${limit}&skip=0`);
             if (data.length > 0) {
                 const imageList = data[0].data.map( image => {
                     return (
@@ -143,23 +143,23 @@ const Gallery = () => {
 
                                 switch (e.target.dataset.testid) {
                                     case 'FirstPageIcon':
-                                        request = `api/images?limit=${limit}&skip=0`
+                                        request = `api/images?reverse=true&limit=${limit}&skip=0`
                                         setPage(1)
                                         break
                                     case 'LastPageIcon':
-                                        request = `api/images?limit=${limit}&skip=${imagesCount - lastPageSize}`
+                                        request = `api/images?reverse=true&limit=${limit}&skip=${imagesCount - lastPageSize}`
                                         setPage(pagesCount)
                                         break
                                     case 'NavigateBeforeIcon':
-                                        request = `api/images?limit=${limit}&skip=${page * limit - (limit * 2)}`
+                                        request = `api/images?reverse=true&limit=${limit}&skip=${page * limit - (limit * 2)}`
                                         setPage(page -1)
                                         break
                                     case 'NavigateNextIcon':
-                                        request = `api/images?limit=${limit}&skip=${page * limit}`
+                                        request = `api/images?reverse=true&limit=${limit}&skip=${page * limit}`
                                         setPage(page +1)
                                         break
                                     default:
-                                        request = `api/images?limit=${limit}&skip=${limit * (params -1)}`
+                                        request = `api/images?reverse=true&limit=${limit}&skip=${limit * (params -1)}`
                                         setPage(params)
                                 }   
 

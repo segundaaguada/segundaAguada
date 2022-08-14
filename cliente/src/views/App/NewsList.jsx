@@ -38,7 +38,7 @@ const NewsList = () => {
     const getNewsList = async () => {
         try {
             document.querySelector('.bounce-loader').classList.add('active');
-            const {data} = await axios.get(`api/news?limit=${limit}&skip=0`);
+            const {data} = await axios.get(`api/news?limit=${limit}&skip=0&reverse=true`);
             const newsList = data[0].data.map( news => {
                 return (
                     {
@@ -126,23 +126,23 @@ const NewsList = () => {
 
                                 switch (e.target.dataset.testid) {
                                     case 'FirstPageIcon':
-                                        request = `api/news?limit=${limit}&skip=0`
+                                        request = `api/news?limit=${limit}&skip=0&reverse=true`
                                         setPage(1)
                                         break
                                     case 'LastPageIcon':
-                                        request = `api/news?limit=${limit}&skip=${newsCount - lastPageSize}`
+                                        request = `api/news?limit=${limit}&skip=${newsCount - lastPageSize}&reverse=true`
                                         setPage(pagesCount)
                                         break
                                     case 'NavigateBeforeIcon':
-                                        request = `api/news?limit=${limit}&skip=${page * limit - (limit * 2)}`
+                                        request = `api/news?limit=${limit}&skip=${page * limit - (limit * 2)}&reverse=true`
                                         setPage(page -1)
                                         break
                                     case 'NavigateNextIcon':
-                                        request = `api/news?limit=${limit}&skip=${page * limit}`
+                                        request = `api/news?limit=${limit}&skip=${page * limit}&reverse=true`
                                         setPage(page +1)
                                         break
                                     default:
-                                        request = `api/news?limit=${limit}&skip=${limit * (params -1)}`
+                                        request = `api/news?limit=${limit}&skip=${limit * (params -1)}&reverse=true`
                                         setPage(params)
                                 }
 
