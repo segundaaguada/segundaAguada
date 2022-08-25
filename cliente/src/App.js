@@ -33,14 +33,14 @@ const App = () => {
       <MyHeader/>
         <Routes>
           {routes}
-          {/* <Route 
-            path='*' 
-            element={<Navigate to="/404" replace />}
-          /> */}
           <Route 
             path='*' 
-            element={<Navigate to="/mantenimiento" replace />}
+            element={<Navigate to="/404" replace />}
           />
+          {/* <Route 
+            path='*' 
+            element={<Navigate to="/mantenimiento" replace />}
+          /> */}
         </Routes>
       <MyFooter
         contactFooter={contactFooter}

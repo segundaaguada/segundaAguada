@@ -34,108 +34,108 @@ import AdminMessages from '../modules/AdminMessages/AdminMessages'
 
 
 export const mainRoutes = [
-    // {
-    //     path: '/',
-    //     tag: 'inicio',
-    //     component: <Home />,
-    //     name: 'Inicio'
-    // },
-    // {
-    //     path: '/nosotros',
-    //     tag: 'nosotros',
-    //     component: <AboutUs />,
-    //     name: 'Sobre nosotros'
-    // },
-    // {
-    //     path: '/galeria',
-    //     tag: 'galeria',
-    //     component: <Gallery />,
-    //     name: 'Galería'
-    // },
-    // {
-    //     path: '/contacto',
-    //     tag: 'contacto',
-    //     component: <Contact />,
-    //     name: 'Contacto'
-    // },
-    // {
-    //     path: '/noticias',
-    //     tag: 'noticias',
-    //     component: <NewsList />,
-    //     name: 'Noticias'
-    // },
-    // {
-    //     path: '/noticias/:id',
-    //     tag: 'noticia',
-    //     component: <News />,
-    //     name: 'Noticia'
-    // },
-    // {
-    //     path: '/entidades',
-    //     tag: 'entidades',
-    //     component: <EntitiesList />,
-    //     name: 'Entidades'
-    // },
-    // {
-    //     path: '/entidades/:id',
-    //     tag: 'entidad',
-    //     component: <Entity />,
-    //     name: 'Entidad'
-    // },
-    // {
-    //     path: '/comercios',
-    //     tag: 'comercios',
-    //     component: <BusinessesList />,
-    //     name: 'Comercios'
-    // },
-    // {
-    //     path: '/comercios/:id',
-    //     tag: 'comercio',
-    //     component: <Business />,
-    //     name: 'Comercio'
-    // },
-    // {
-    //     path: '/404',
-    //     tag: '404',
-    //     component: <NotFound />,
-    //     name: '404'
-    // },
     {
-        path: '/mantenimiento',
-        tag: 'mantenimiento',
-        component: <Maintenance/>,
-        name: 'mantenimiento'
+        path: '/',
+        tag: 'inicio',
+        component: <Home />,
+        name: 'Inicio'
+    },
+    {
+        path: '/nosotros',
+        tag: 'nosotros',
+        component: <AboutUs />,
+        name: 'Sobre nosotros'
+    },
+    {
+        path: '/galeria',
+        tag: 'galeria',
+        component: <Gallery />,
+        name: 'Galería'
+    },
+    {
+        path: '/contacto',
+        tag: 'contacto',
+        component: <Contact />,
+        name: 'Contacto'
+    },
+    {
+        path: '/noticias',
+        tag: 'noticias',
+        component: <NewsList />,
+        name: 'Noticias'
+    },
+    {
+        path: '/noticias/:id',
+        tag: 'noticia',
+        component: <News />,
+        name: 'Noticia'
+    },
+    {
+        path: '/entidades',
+        tag: 'entidades',
+        component: <EntitiesList />,
+        name: 'Entidades'
+    },
+    {
+        path: '/entidades/:id',
+        tag: 'entidad',
+        component: <Entity />,
+        name: 'Entidad'
+    },
+    {
+        path: '/comercios',
+        tag: 'comercios',
+        component: <BusinessesList />,
+        name: 'Comercios'
+    },
+    {
+        path: '/comercios/:id',
+        tag: 'comercio',
+        component: <Business />,
+        name: 'Comercio'
+    },
+    {
+        path: '/404',
+        tag: '404',
+        component: <NotFound />,
+        name: '404'
     },
     // {
-    //     path: '/admin/registro',
-    //     tag: 'registro',
-    //     component: <Register />,
-    //     name: 'Registro'
+    //     path: '/mantenimiento',
+    //     tag: 'mantenimiento',
+    //     component: <Maintenance/>,
+    //     name: 'mantenimiento'
     // },
-    // {
-    //     path: '/admin/login',
-    //     tag: 'login',
-    //     component: <Login />,
-    //     name: 'Login'
-    // },
-    // {
-    //     path: '/admin/registro/comercio',
-    //     tag: 'registro comercio',
-    //     component: <BusinessRegister />,
-    //     name: 'Registro comercio'
-    // },
-    // {
-    //     path: '/admin/registro/entidad',
-    //     tag: 'registro entidad',
-    //     component: <EntityRegister />,
-    //     name: 'Registro entidad'
-    // },
-    // {
-    //     path: '/admin',
-    //     tag: 'admin',
-    //     component: <Admin />,
-    //     name: 'Admin'
-    // }
+    {
+        path: '/admin/registro',
+        tag: 'registro',
+        component: <Register />,
+        name: 'Registro'
+    },
+    {
+        path: '/admin/login',
+        tag: 'login',
+        component: <Login />,
+        name: 'Login'
+    },
+    {
+        path: '/admin/registro/comercio',
+        tag: 'registro comercio',
+        component: <BusinessRegister />,
+        name: 'Registro comercio'
+    },
+    {
+        path: '/admin/registro/entidad',
+        tag: 'registro entidad',
+        component: <EntityRegister />,
+        name: 'Registro entidad'
+    },
+    {
+        path: '/admin',
+        tag: 'admin',
+        component: <Admin />,
+        name: 'Admin'
+    }
 ]
 
 export const adminRoutes = {
