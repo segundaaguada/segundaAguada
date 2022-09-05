@@ -98,9 +98,9 @@ bussinesSchema.set('toJSON', {
 bussinesSchema.methods.setImgUrl = function setImgUrl(filename){
     
     const host = process.env.APP_HOST 
-    const port = process.env.PORT
+    // const port = process.env.PORT
 
-    this.imageUrl = `${host}:${port}/public/${filename}`
+    this.imageUrl = `${host}/public/${filename}`
 
     
 }

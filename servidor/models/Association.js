@@ -109,8 +109,8 @@ associationSchema.set("toJSON",{
 
 associationSchema.methods.setImgUrl = function setImgUrl(filename){
     const host = process.env.APP_HOST 
-    const port = process.env.PORT
-    this.imageUrl = `${host}:${port}/public/${filename}`
+    // const port = process.env.PORT
+    this.imageUrl = `${host}/public/${filename}`
 }
 
 associationSchema.plugin(uniqueValidator)
